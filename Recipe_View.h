@@ -8,6 +8,8 @@
 #include <gtkmm.h>
 #include <iostream>
 
+#include "DB.h"
+
 #define UI_FILE "../recipe_view.glade"
 #define TITLE "Recipe Finder"
 #define URL "org.rhys.RecipeFinder"
@@ -19,11 +21,15 @@ private:
     Gtk::Window* window;
     Glib::RefPtr<Gtk::Application> app;
 
+    DB* db;
+
     Gtk::TreeView* recipe_view;
 
     void add_recipe_view_item(const char* title);
 
     void init_recipe_view();
+
+    void load_recipes();
 
 public:
     Recipe_View(int argc, char** argv);

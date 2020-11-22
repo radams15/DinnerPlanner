@@ -5,11 +5,15 @@
   <object class="GtkWindow" id="main_window">
     <property name="can-focus">False</property>
     <child>
-      <object class="GtkTreeView" id="recipe_view">
+      <object class="GtkScrolledWindow">
         <property name="visible">True</property>
         <property name="can-focus">True</property>
-        <child internal-child="selection">
-          <object class="GtkTreeSelection"/>
+        <property name="shadow-type">in</property>
+        <child>
+          <object class="GtkTreeView" id="recipe_view">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+          </object>
         </child>
       </object>
     </child>

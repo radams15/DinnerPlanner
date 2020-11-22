@@ -33,12 +33,8 @@ gtkmm.h
 -
 iostream
 -
-
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/main.cpp
 DB.h
 /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.h
-Recipe_View.h
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe_View.h
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
 atk/atkversion.h

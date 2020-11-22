@@ -5,6 +5,9 @@
 #include "Recipe_View.h"
 
 Recipe_View::Recipe_View(int argc, char **argv) {
+
+    db = new DB("../recipes.sqlite");
+
     app = Gtk::Application::create(argc, argv,URL);
 
     builder = Gtk::Builder::create_from_file(UI_FILE);
@@ -23,9 +26,7 @@ Recipe_View::Recipe_View(int argc, char **argv) {
     window->set_title(TITLE);
 
     init_recipe_view();
-
-    add_recipe_view_item("TEST 1");
-    add_recipe_view_item("TEST 2");
+    load_recipes();
 
     window->show_all();
 }
@@ -49,7 +50,7 @@ void Recipe_View::init_recipe_view() {
     GtkTreeViewColumn *column;
     GtkListStore *store;
 
-    renderer = gtk_cell_renderer_text_new ();
+    renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes("Recipes", renderer, "text", 0, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(recipe_view->gobj()), column);
 
@@ -58,4 +59,10 @@ void Recipe_View::init_recipe_view() {
     gtk_tree_view_set_model(GTK_TREE_VIEW(recipe_view->gobj()), GTK_TREE_MODEL(store));
 
     g_object_unref(store);
+}
+
+void Recipe_View::load_recipes() {
+    for(Recipe r : db->get_recipes()){
+        add_recipe_view_item(r.name.c_str());
+    }
 }

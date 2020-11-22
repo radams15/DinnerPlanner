@@ -8,6 +8,9 @@ CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.o: ../DB.cpp
 CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.o: ../DB.h
 CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.o: ../Recipe.h
 
+CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../sqlite/sqlite3.h
+CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../DB.h
+CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../Recipe.h
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../Recipe_View.cpp
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../Recipe_View.h
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h
