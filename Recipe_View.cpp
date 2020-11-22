@@ -35,34 +35,24 @@ int Recipe_View::run() {
     return app->run(*window);
 }
 
-void Recipe_View::add_recipe_view_item(const char* title) {
-    GtkListStore *store;
-    GtkTreeIter iter;
+void Recipe_View::add_recipe_view_item(Recipe recipe) {
+    Gtk::TreeModel::Row row = *recipe_store->append();
 
-    store = GTK_LIST_STORE(gtk_tree_view_get_model(recipe_view->gobj()));
-
-    gtk_list_store_append(store, &iter);
-    gtk_list_store_set(store, &iter, 0, title, -1);
+    row[recipe_cols.id] = recipe.id;
+    row[recipe_cols.name] = recipe.name.c_str();
 }
 
 void Recipe_View::init_recipe_view() {
-    GtkCellRenderer *renderer;
-    GtkTreeViewColumn *column;
-    GtkListStore *store;
+    recipe_store = Gtk::ListStore::create(recipe_cols);
 
-    renderer = gtk_cell_renderer_text_new();
-    column = gtk_tree_view_column_new_with_attributes("Recipes", renderer, "text", 0, NULL);
-    gtk_tree_view_append_column(GTK_TREE_VIEW(recipe_view->gobj()), column);
+    recipe_view->set_model(recipe_store);
 
-    store = gtk_list_store_new(1, G_TYPE_STRING);
-
-    gtk_tree_view_set_model(GTK_TREE_VIEW(recipe_view->gobj()), GTK_TREE_MODEL(store));
-
-    g_object_unref(store);
+    recipe_view->append_column("ID", recipe_cols.id);
+    recipe_view->append_column("Name", recipe_cols.name);
 }
 
 void Recipe_View::load_recipes() {
     for(Recipe r : db->get_recipes()){
-        add_recipe_view_item(r.name.c_str());
+        add_recipe_view_item(r);
     }
 }

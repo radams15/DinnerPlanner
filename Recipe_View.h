@@ -24,8 +24,21 @@ private:
     DB* db;
 
     Gtk::TreeView* recipe_view;
+    Glib::RefPtr<Gtk::ListStore> recipe_store;
 
-    void add_recipe_view_item(const char* title);
+    class RecipeCols : public Gtk::TreeModel::ColumnRecord{
+    public:
+        RecipeCols(){
+            add(id);
+            add(name);
+        }
+        Gtk::TreeModelColumn<int> id;
+        Gtk::TreeModelColumn<Glib::ustring> name;
+    };
+
+    RecipeCols recipe_cols;
+
+    void add_recipe_view_item(Recipe recipe);
 
     void init_recipe_view();
 
