@@ -23,8 +23,14 @@ private:
 
     DB* db;
 
+    std::vector<Recipe> recipes;
+
     Gtk::TreeView* recipe_view;
     Glib::RefPtr<Gtk::ListStore> recipe_store;
+
+    Gtk::SearchEntry* search_bar;
+
+    void search_changed();
 
     class RecipeCols : public Gtk::TreeModel::ColumnRecord{
     public:
@@ -37,6 +43,10 @@ private:
     };
 
     RecipeCols recipe_cols;
+
+    void recipe_view_clear();
+
+    void recipe_click_callback(Gtk::TreePath a, Gtk::TreeViewColumn* b);
 
     void add_recipe_view_item(Recipe recipe);
 
