@@ -25,8 +25,11 @@ private:
 
     std::vector<Recipe> recipes;
 
+    Gtk::HeaderBar* header;
+
     Gtk::TreeView* recipe_view;
     Glib::RefPtr<Gtk::ListStore> recipe_store;
+    Gtk::ScrolledWindow* scroll;
 
     Gtk::SearchEntry* search_bar;
 
@@ -48,7 +51,7 @@ private:
 
     void recipe_click_callback(Gtk::TreePath a, Gtk::TreeViewColumn* b);
 
-    void add_recipe_view_item(Recipe recipe);
+    void add_recipe_view_item(const Recipe& recipe);
 
     void init_recipe_view();
 

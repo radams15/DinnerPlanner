@@ -11,41 +11,45 @@ string lower(string str){
 }
 
 Recipe_View::Recipe_View(int argc, char **argv) {
-
     db = new DB("../recipes.sqlite");
 
     app = Gtk::Application::create(argc, argv,URL);
 
-    builder = Gtk::Builder::create_from_file(UI_FILE);
+    window = new Gtk::Window();
 
-    builder->get_widget("main_window", window);
+    header = new Gtk::HeaderBar();
 
-    if(!window){
-        std::cerr << "WINDOW FAIL" << std::endl;
-        exit(1);
-    }
+    header->set_show_close_button(true);
 
-    builder->get_widget("search_bar", search_bar);
+    window->set_titlebar(*header);
 
+    scroll = new Gtk::ScrolledWindow();
+
+    recipe_view = new Gtk::TreeView();
+
+    scroll->add(*recipe_view);
+
+    init_recipe_view();
+
+    search_bar = new Gtk::SearchEntry();
     search_bar->signal_changed().connect(sigc::mem_fun(*this, &Recipe_View::search_changed));
-
-    builder->get_widget("recipe_view", recipe_view);
 
     window->set_default_size(WINDOW_SIZE);
 
     window->set_title(TITLE);
 
-    init_recipe_view();
-    load_recipes();
+    window->add(*scroll);
 
     window->show_all();
+
+    load_recipes();
 }
 
 int Recipe_View::run() {
     return app->run(*window);
 }
 
-void Recipe_View::add_recipe_view_item(Recipe recipe) {
+void Recipe_View::add_recipe_view_item(const Recipe& recipe) {
     Gtk::TreeModel::Row row = *recipe_store->append();
 
     row[recipe_cols.id] = recipe.id;
@@ -72,10 +76,9 @@ void Recipe_View::load_recipes() {
 
 void Recipe_View::recipe_click_callback(Gtk::TreePath a, Gtk::TreeViewColumn* b) {
     int id = atoi(a.to_string().c_str());
-
     Recipe recipe = recipes[id];
 
-    printf("%s by %s\n", recipe.name.c_str(), recipe.author.c_str());
+    printf("%s by %s (%s)\n", recipe.name.c_str(), recipe.author.c_str(), recipe.url.c_str());
 }
 
 void Recipe_View::search_changed() {
