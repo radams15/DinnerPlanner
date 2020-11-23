@@ -33,6 +33,7 @@ Recipe_View::Recipe_View(int argc, char **argv) {
 
     search_bar = new Gtk::SearchEntry();
     search_bar->signal_changed().connect(sigc::mem_fun(*this, &Recipe_View::search_changed));
+    header->add(*search_bar);
 
     window->set_default_size(WINDOW_SIZE);
 
