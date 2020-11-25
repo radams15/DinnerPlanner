@@ -160,6 +160,12 @@
 		<Unit filename="/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.h">
 			<Option target="DinnerPlanner_Gui"/>
 		</Unit>
+		<Unit filename="/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.cpp">
+			<Option target="DinnerPlanner_Gui"/>
+		</Unit>
+		<Unit filename="/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h">
+			<Option target="DinnerPlanner_Gui"/>
+		</Unit>
 		<Unit filename="/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe_View.cpp">
 			<Option target="DinnerPlanner_Gui"/>
 		</Unit>

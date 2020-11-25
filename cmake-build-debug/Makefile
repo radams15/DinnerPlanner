@@ -170,6 +170,33 @@ DB.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DinnerPlanner_Gui.dir/build.make CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.s
 .PHONY : DB.cpp.s
 
+Network.o: Network.cpp.o
+
+.PHONY : Network.o
+
+# target to build an object file
+Network.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DinnerPlanner_Gui.dir/build.make CMakeFiles/DinnerPlanner_Gui.dir/Network.cpp.o
+.PHONY : Network.cpp.o
+
+Network.i: Network.cpp.i
+
+.PHONY : Network.i
+
+# target to preprocess a source file
+Network.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DinnerPlanner_Gui.dir/build.make CMakeFiles/DinnerPlanner_Gui.dir/Network.cpp.i
+.PHONY : Network.cpp.i
+
+Network.s: Network.cpp.s
+
+.PHONY : Network.s
+
+# target to generate assembly for a file
+Network.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DinnerPlanner_Gui.dir/build.make CMakeFiles/DinnerPlanner_Gui.dir/Network.cpp.s
+.PHONY : Network.cpp.s
+
 Recipe_View.o: Recipe_View.cpp.o
 
 .PHONY : Recipe_View.o
@@ -263,6 +290,9 @@ help:
 	@echo "... DB.o"
 	@echo "... DB.i"
 	@echo "... DB.s"
+	@echo "... Network.o"
+	@echo "... Network.i"
+	@echo "... Network.s"
 	@echo "... Recipe_View.o"
 	@echo "... Recipe_View.i"
 	@echo "... Recipe_View.s"

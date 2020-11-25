@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "DB.h"
+#include "Network.h"
 
 #define UI_FILE "../recipe_view.glade"
 #define TITLE "Recipe Finder"

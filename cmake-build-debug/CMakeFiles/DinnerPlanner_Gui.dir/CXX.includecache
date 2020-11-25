@@ -20,6 +20,12 @@ cstring
 Recipe.h
 /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe.h
 
+/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h
+iostream
+-
+curl/curl.h
+-
+
 /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe.h
 string
 -
@@ -35,6 +41,8 @@ iostream
 -
 DB.h
 /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.h
+Network.h
+/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
 atk/atkversion.h

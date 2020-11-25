@@ -5,7 +5,9 @@
 #ifndef DINNERPLANNER_GUI_DB_H
 #define DINNERPLANNER_GUI_DB_H
 
-#include <sqlite3.h>
+extern "C" {
+    #include <sqlite3.h>
+};
 #include <vector>
 #include <cstring>
 

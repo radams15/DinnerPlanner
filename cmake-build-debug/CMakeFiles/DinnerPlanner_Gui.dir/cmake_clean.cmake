@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.o"
+  "CMakeFiles/DinnerPlanner_Gui.dir/Network.cpp.o"
   "CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o"
   "CMakeFiles/DinnerPlanner_Gui.dir/main.cpp.o"
   "CMakeFiles/DinnerPlanner_Gui.dir/sqlite/sqlite3.c.o"

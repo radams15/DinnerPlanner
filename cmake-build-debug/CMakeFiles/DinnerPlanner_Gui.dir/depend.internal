@@ -8,9 +8,13 @@ CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.o
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.cpp
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.h
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe.h
+CMakeFiles/DinnerPlanner_Gui.dir/Network.cpp.o
+ /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.cpp
+ /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o
  ../sqlite/sqlite3.h
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.h
+ /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe.h
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe_View.cpp
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe_View.h
@@ -1230,6 +1234,7 @@ CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o
 CMakeFiles/DinnerPlanner_Gui.dir/main.cpp.o
  ../sqlite/sqlite3.h
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.h
+ /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe.h
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe_View.h
  /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/main.cpp

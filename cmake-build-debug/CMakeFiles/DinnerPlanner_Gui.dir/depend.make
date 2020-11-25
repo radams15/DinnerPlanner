@@ -8,8 +8,12 @@ CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.o: ../DB.cpp
 CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.o: ../DB.h
 CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.o: ../Recipe.h
 
+CMakeFiles/DinnerPlanner_Gui.dir/Network.cpp.o: ../Network.cpp
+CMakeFiles/DinnerPlanner_Gui.dir/Network.cpp.o: ../Network.h
+
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../sqlite/sqlite3.h
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../DB.h
+CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../Network.h
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../Recipe.h
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../Recipe_View.cpp
 CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: ../Recipe_View.h
@@ -1229,6 +1233,7 @@ CMakeFiles/DinnerPlanner_Gui.dir/Recipe_View.cpp.o: /usr/lib64/sigc++-2.0/includ
 
 CMakeFiles/DinnerPlanner_Gui.dir/main.cpp.o: ../sqlite/sqlite3.h
 CMakeFiles/DinnerPlanner_Gui.dir/main.cpp.o: ../DB.h
+CMakeFiles/DinnerPlanner_Gui.dir/main.cpp.o: ../Network.h
 CMakeFiles/DinnerPlanner_Gui.dir/main.cpp.o: ../Recipe.h
 CMakeFiles/DinnerPlanner_Gui.dir/main.cpp.o: ../Recipe_View.h
 CMakeFiles/DinnerPlanner_Gui.dir/main.cpp.o: ../main.cpp
