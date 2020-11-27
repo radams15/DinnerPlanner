@@ -15,6 +15,6 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 
 include_directories(sqlite)
 
-add_executable(DinnerPlanner_Gui main.cpp sqlite/sqlite3.c DB.cpp Recipe_View.cpp Network.cpp)
+add_executable(DinnerPlanner_Gui main.cpp sqlite/sqlite3.c DB.cpp Recipe_View.cpp Network.cpp Image.cpp)
 
 target_link_libraries(DinnerPlanner_Gui PRIVATE Threads::Threads ${CMAKE_DL_LIBS} ${GTKMM_LIBRARIES} curl)

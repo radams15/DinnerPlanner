@@ -13,41 +13,37 @@ string lower(string str){
 Recipe_View::Recipe_View(int argc, char **argv) {
     db = new DB("../recipes.sqlite");
 
-    app = Gtk::Application::create(argc, argv,URL);
+    app = Gtk::Application::create(argc, argv, URL);
 
     window = new Gtk::Window();
 
+    header = new Gtk::HeaderBar();
+
+    header->set_show_close_button(true);
+
+    window->set_titlebar(*header);
+
+    scroll = new Gtk::ScrolledWindow();
+
+    recipe_view = new Gtk::TreeView();
+
+    scroll->add(*recipe_view);
+
+    init_recipe_view();
+
+    search_bar = new Gtk::SearchEntry();
+    search_bar->signal_changed().connect(sigc::mem_fun(*this, &Recipe_View::search_changed));
+    header->add(*search_bar);
+
+    window->set_default_size(WINDOW_SIZE);
+
+    window->set_title(TITLE);
+
+    window->add(*scroll);
 
     window->show_all();
 
-
-    header = new Gtk::HeaderBar();
-
-     header->set_show_close_button(true);
-
-     window->set_titlebar(*header);
-
-     scroll = new Gtk::ScrolledWindow();
-
-     recipe_view = new Gtk::TreeView();
-
-     scroll->add(*recipe_view);
-
-     init_recipe_view();
-
-     search_bar = new Gtk::SearchEntry();
-     search_bar->signal_changed().connect(sigc::mem_fun(*this, &Recipe_View::search_changed));
-     header->add(*search_bar);
-
-     window->set_default_size(WINDOW_SIZE);
-
-     window->set_title(TITLE);
-
-     window->add(*scroll);
-
-     window->show_all();
-
-     load_recipes();
+    load_recipes();
 }
 
 int Recipe_View::run() {

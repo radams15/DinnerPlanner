@@ -170,6 +170,33 @@ DB.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DinnerPlanner_Gui.dir/build.make CMakeFiles/DinnerPlanner_Gui.dir/DB.cpp.s
 .PHONY : DB.cpp.s
 
+Image.o: Image.cpp.o
+
+.PHONY : Image.o
+
+# target to build an object file
+Image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DinnerPlanner_Gui.dir/build.make CMakeFiles/DinnerPlanner_Gui.dir/Image.cpp.o
+.PHONY : Image.cpp.o
+
+Image.i: Image.cpp.i
+
+.PHONY : Image.i
+
+# target to preprocess a source file
+Image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DinnerPlanner_Gui.dir/build.make CMakeFiles/DinnerPlanner_Gui.dir/Image.cpp.i
+.PHONY : Image.cpp.i
+
+Image.s: Image.cpp.s
+
+.PHONY : Image.s
+
+# target to generate assembly for a file
+Image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DinnerPlanner_Gui.dir/build.make CMakeFiles/DinnerPlanner_Gui.dir/Image.cpp.s
+.PHONY : Image.cpp.s
+
 Network.o: Network.cpp.o
 
 .PHONY : Network.o
@@ -290,6 +317,9 @@ help:
 	@echo "... DB.o"
 	@echo "... DB.i"
 	@echo "... DB.s"
+	@echo "... Image.o"
+	@echo "... Image.i"
+	@echo "... Image.s"
 	@echo "... Network.o"
 	@echo "... Network.i"
 	@echo "... Network.s"

@@ -6,43 +6,27 @@
 
 #IncludeRegexTransform: 
 
-../sqlite/sqlite3.h
-stdarg.h
--
+/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Image.cpp
+Image.h
+/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Image.h
 
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.h
-sqlite3.h
+/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Image.h
+string
 -
-vector
+iostream
 -
-cstring
+gtkmm.h
 -
-Recipe.h
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe.h
+Network.h
+/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h
 
 /home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h
 iostream
+-
+fstream
 -
 curl/curl.h
 -
-
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe.h
-string
--
-
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe_View.cpp
-Recipe_View.h
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe_View.h
-
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Recipe_View.h
-gtkmm.h
--
-iostream
--
-DB.h
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/DB.h
-Network.h
-/home/rhys/scripts/Projects/DinnerPlanner/DinnerPlanner_Gui/Network.h
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
 atk/atkversion.h
