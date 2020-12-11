@@ -1,7 +1,11 @@
-#include "Recipe_View.h"
+#include "MainWindow.h"
 
-int main(int argc, char** argv) {
-    Recipe_View recipe_view(argc, argv);
+#include <QApplication>
 
-    return recipe_view.run();
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }

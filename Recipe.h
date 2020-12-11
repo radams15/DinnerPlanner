@@ -6,19 +6,20 @@
 #define DINNERPLANNER_GUI_RECIPE_H
 
 #include <string>
+#include <QtCore/QString>
 
 using string = std::string;
 
 struct Recipe{
     int id;
-    string name;
-    string author;
-    string description;
-    string image_url;
-    string category;
-    string ingredients;
-    string method;
-    string url;
+    QString name;
+    QString author;
+    QString description;
+    QString image_url;
+    QString category;
+    QString ingredients;
+    QString method;
+    QString url;
 };
 
 #endif //DINNERPLANNER_GUI_RECIPE_H

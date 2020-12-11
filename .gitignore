@@ -1,5 +1,0 @@
-/recipes.sqlite
-build_linux/*
-build_mingw/*
-cmake-build-debug
-/cmake-build-debug/

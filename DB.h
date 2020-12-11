@@ -5,17 +5,18 @@
 #ifndef DINNERPLANNER_GUI_DB_H
 #define DINNERPLANNER_GUI_DB_H
 
-extern "C" {
-    #include <sqlite3.h>
-};
+#include <sqlite3.h>
 #include <vector>
 #include <cstring>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QDebug>
 
 #include "Recipe.h"
 
 class DB {
 private:
-    sqlite3* db;
+    QSqlDatabase db;
 public:
     DB(const char* path);
 

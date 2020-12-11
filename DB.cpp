@@ -4,50 +4,50 @@
 
 #include "DB.h"
 
-int get_recipes_callback(void* data, int argc, char** argv, char** col_name){
-    std::vector<Recipe>* out = (std::vector<Recipe>*) data;
+#include <iostream>
+#include <QtSql/QSqlError>
 
-    Recipe recipe;
-
-    for(int i=0 ; i<argc ; i++){
-        if(strcmp(col_name[i], "id") == 0){
-            recipe.id = atoi(argv[i]);
-        }else if(strcmp(col_name[i], "name") == 0){
-            recipe.name = argv[i];
-        }else if(strcmp(col_name[i], "author") == 0){
-            recipe.author = argv[i];
-        }else if(strcmp(col_name[i], "description") == 0){
-            recipe.description = argv[i];
-        }else if(strcmp(col_name[i], "image_url") == 0){
-            recipe.image_url = argv[i];
-        }else if(strcmp(col_name[i], "category") == 0){
-            recipe.category = argv[i];
-        }else if(strcmp(col_name[i], "ingredients") == 0){
-            recipe.ingredients = argv[i];
-        }else if(strcmp(col_name[i], "method") == 0){
-            recipe.method = argv[i];
-        }else if(strcmp(col_name[i], "url") == 0){
-            recipe.url = argv[i];
-        }
-    }
-
-    out->push_back(recipe);
-
-    return 0;
-}
+using namespace std;
 
 DB::DB(const char *path) {
-    sqlite3_open(path, &this->db);
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName(path);
+
+    if (!db.open()){
+        cerr << "Error: connection with database failed\n";
+    }else{
+        cout << "Database: connection ok\n";
+    }
 }
 
 DB::~DB() {
-    sqlite3_close(this->db);
+    db.close();
 }
 
 std::vector<Recipe> DB::get_recipes() {
     std::vector<Recipe> out;
 
-    sqlite3_exec(this->db, "SELECT * FROM recipes", get_recipes_callback, &out, NULL);
+    QSqlQuery query = db.exec("SELECT * FROM recipes");
+
+    if (!query.lastError().isValid()){
+        while(query.next()){
+            Recipe r = {
+                query.value(0).toInt(),
+                query.value(1).toString(),
+                query.value(2).toString(),
+                query.value(3).toString(),
+                query.value(4).toString(),
+                query.value(5).toString(),
+                query.value(6).toString(),
+                query.value(7).toString(),
+                query.value(8).toString()
+            };
+
+            out.push_back(r);
+        }
+    }else{
+        cout << query.lastError().text().toStdString() << "\n";
+    }
 
     return out;
 }
