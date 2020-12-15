@@ -4,9 +4,6 @@
 
 #include "DB.h"
 
-#include <iostream>
-#include <QtSql/QSqlError>
-
 using namespace std;
 
 DB::DB(const char *path) {

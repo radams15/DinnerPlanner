@@ -1,4 +1,4 @@
-QT += core gui sql
+QT += core gui sql network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,7 +16,8 @@ SOURCES += \
 HEADERS += \
     MainWindow.h \
     DB.h \
-    Recipe.h
+    Recipe.h \
+    json.hpp
 
 FORMS += \
     MainWindow.ui

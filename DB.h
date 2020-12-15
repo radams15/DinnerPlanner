@@ -5,11 +5,12 @@
 #ifndef DINNERPLANNER_GUI_DB_H
 #define DINNERPLANNER_GUI_DB_H
 
-#include <sqlite3.h>
 #include <vector>
-#include <cstring>
+#include <iostream>
+
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
+#include <QtSql/QSqlError>
 #include <QDebug>
 
 #include "Recipe.h"
