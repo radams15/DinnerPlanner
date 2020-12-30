@@ -13,15 +13,14 @@ int write_memory_callback(void *contents, size_t size, size_t nmemb, void *userp
     int realsize = size * nmemb;
     struct MemoryStruct *mem = (struct MemoryStruct *)userp;
 
-    char *ptr = realloc(mem->memory, mem->size + realsize + 1);
+    char* ptr = (char*) realloc(mem->memory, mem->size + realsize + 1);
 
     if(ptr == NULL) {
-        /* out of memory! */
         printf("not enough memory (realloc returned NULL)\n");
         return 0;
     }
 
-    mem->memory = ptr;
+    mem->memory = (guint8*) ptr;
     memcpy(&(mem->memory[mem->size]), contents, realsize);
     mem->size += realsize;
     mem->memory[mem->size] = 0;
@@ -35,7 +34,7 @@ struct MemoryStruct get_url(const char* url){
 
     struct MemoryStruct chunk;
 
-    chunk.memory = malloc(1);
+    chunk.memory = (guint8*) malloc(1);
     chunk.size = 0;
 
     curl_global_init(CURL_GLOBAL_ALL);

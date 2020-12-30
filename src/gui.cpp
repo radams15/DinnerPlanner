@@ -6,10 +6,12 @@
 
 #include "Recipe.h"
 #include "recipes.h"
-
 #include "gui.h"
 
-#include "jsmn.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 
 ResizeWidgets* image_widget;
 GtkWidget* recipe_title;
@@ -63,51 +65,33 @@ void set_recipe(Detailed_Recipe r){
     gtk_list_store_clear(GTK_LIST_STORE(method_store));
     gtk_list_store_clear(GTK_LIST_STORE(ingredients_store));
 
-    jsmn_parser p;
-    jsmn_init(&p);
-    jsmntok_t t[64];
-    int num_elems = jsmn_parse(&p, r.method, strlen(r.method), t, sizeof(t)/sizeof(t[0]));
-    int i;
 
     GtkTreeIter iter;
 
-    for(i=0 ; i<num_elems ; i++){ //https://github.com/zserge/jsmn/blob/053d3cd29200edb1bfd181d917d140c16c1f8834/example/simple.c#L67
-        jsmntok_t *g = &t[i + 2];
-        int str_len = g->end - g->start;
-        char* data = calloc(str_len+1, sizeof(char));
-
-        sprintf(data, "%.*s", str_len, r.method + g->start);
-
-        if(strcmp(data, "") == 0) continue;
-
+    /*
         gtk_list_store_append(method_store, &iter);
         gtk_list_store_set(method_store, &iter,
                            0, data,
                            -1
         );
+     */
 
-        free(data);
-    }
-
-    num_elems = jsmn_parse(&p, r.ingredients, strlen(r.ingredients), t, sizeof(t)/sizeof(t[0]));
-    printf("'%s'\n", r.ingredients);
-    for(i=0 ; i<num_elems ; i++){
-        jsmntok_t *g = &t[i + 2];
-        int str_len = g->end - g->start;
-        char* data = calloc(str_len+1, sizeof(char));
-
-        sprintf(data, "%.*s", str_len, r.ingredients + g->start);
-        printf(" %s\n", data);
-
-        if(strcmp(data, "") == 0) continue;
-
-        gtk_list_store_append(ingredients_store, &iter);
-        gtk_list_store_set(ingredients_store, &iter,
-                           0, data,
+    json method = json::parse(r.method);
+    for(std::string m : method){
+        gtk_list_store_append(method_store, &iter);
+        gtk_list_store_set(method_store, &iter,
+                           0, m.c_str(),
                            -1
         );
+    }
 
-        free(data);
+    json ingredients = json::parse(r.ingredients);
+    for(std::string i : ingredients){
+        gtk_list_store_append(ingredients_store, &iter);
+        gtk_list_store_set(ingredients_store, &iter,
+                           0, i.c_str(),
+                           -1
+        );
     }
 
     free_detailed_recipe(&r);
@@ -224,12 +208,20 @@ void setup_specific_tab(GtkWidget* tab){
     set_recipe(get_recipe(105));
 }
 
+void setup_header(GtkWindow* window){
+    GtkWidget* header = gtk_header_bar_new();
+
+    GtkWidget* search_bar = gtk_entry_new();
+    gtk_container_add(GTK_CONTAINER(header), search_bar);
+
+    gtk_header_bar_set_show_close_button(GTK_HEADER_BAR(header), 1);
+    gtk_window_set_titlebar(GTK_WINDOW(window), GTK_WIDGET(header));
+}
+
 void activate(GtkApplication* app, gpointer user_data){
     GtkWidget *window = gtk_application_window_new(app);
 
-    GtkWidget* header = gtk_header_bar_new();
-    gtk_header_bar_set_show_close_button(GTK_HEADER_BAR(header), 1);
-    gtk_window_set_titlebar(GTK_WINDOW(window), GTK_WIDGET(header));
+    setup_header(GTK_WINDOW(window));
 
     GtkWidget* notebook = gtk_notebook_new();
 

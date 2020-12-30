@@ -1,4 +1,4 @@
-project('DinnerPlannerGui', 'c')
+project('DinnerPlannerGui', 'cpp')
 
 sqlite = subproject('sqlite')
 
@@ -9,11 +9,10 @@ dependencies = [
 ]
 
 files = [
-    'src/main.c',
-    'src/network.c',
-    'src/recipes.c',
-    'src/gui.c',
-    'src/db.c'
+    'src/main.cpp',
+    'src/network.cpp',
+    'src/recipes.cpp',
+    'src/gui.cpp'
 ]
 
 executable('DinnerPlanner', files, dependencies : dependencies)
