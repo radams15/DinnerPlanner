@@ -1,0 +1,8 @@
+/recipes.sqlite
+build_linux/*
+build_mingw/*
+cmake-build-debug
+/cmake-build-debug/
+/builddir_linux/
+/subprojects/packagecache/
+/subprojects/sqlite-amalgamation-*
